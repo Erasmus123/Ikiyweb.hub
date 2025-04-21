@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SMKN 1 Tangerang - Sekolah Unggulan Berbasis Teknologi</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Navy Color Palette */
+        :root {
+            --primary: #1A3A8F;
+            --primary-light: #2A4DA0;
+            --secondary: #3A5FCD;
+            --secondary-light: #4A6FDD;
+            --dark: #0A1A4A;
+            --light: #F8F9FA;
+            --cream: #FFFFFF;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            --navy: #0F2D6A;
+        }
+
+        /* Reset dan Gaya Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--cream);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(26, 58, 143, 0.3);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            color: var(--navy);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+            border-radius: 8px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+            color: var(--navy);
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 300;
+        }
+        
+        /* Navigasi */
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            padding: 0.5rem 0;
+            position: relative;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: var(--navy);
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+            margin-top: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(26, 58, 143, 0.9) 0%, rgba(42, 77, 160, 0.9) 100%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        .hero-content {
+            text-align: center;
+            color: white;
+            width: 100%;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Program Section */
+        .program-section {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .program-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: 350px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(26, 58, 143, 0.1);
+        }
+        
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(26, 58, 143, 0.3);
+        }
+        
+        .program-card h3 {
+            color: var(--navy);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .program-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        /* Daftar Siswa Section */
+        .students-section {
+            background-color: var(--light);
+        }
+        
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .student-table th, .student-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .student-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .student-table tr:nth-child(even) {
+            background-color: rgba(26, 58, 143, 0.05);
+        }
+        
+        .student-table tr:hover {
+            background-color: rgba(26, 58, 143, 0.1);
+        }
+        
+        /* Fasilitas Section */
+        .facilities-section {
+            background-color: var(--light);
+        }
+        
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .facility-item {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .facility-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .facility-content h3 {
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .facility-content p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        /* Berita Section */
+        .news-section {
+            background-color: white;
+        }
+        
+        .news-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .news-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .news-date i {
+            font-size: 0.8rem;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .news-excerpt {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .read-more i {
+            transition: transform 0.3s ease;
+            font-size: 0.8rem;
+        }
+        
+        .news-card:hover .read-more i {
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--navy) 0%, #0A1A4A 100%);
+            color: white;
+            padding-top: 80px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 3px;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 15px;
+            display: block;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .footer-section a {
+            color: white;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--secondary-light);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            width: 18px;
+            text-align: center;
+            color: var(--secondary-light);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .social-icons a:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+        
+        /* Animasi */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsif */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: white;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                transition: all 0.4s ease;
+                padding: 80px 30px;
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            nav a {
+                font-size: 1.1rem;
+                color: var(--navy);
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero {
+                min-height: 600px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .student-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .news-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .program-card {
+                width: 100%;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+    
+/* --- Semi-Major Style Refresh --- */
+
+/* Typography */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+h1, h2, h3, h4 {
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Buttons */
+.btn {
+    border: 1px solid var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+}
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Background Tweaks */
+.students-section {
+    background: linear-gradient(145deg, #f0f4ff, #ffffff);
+}
+.facilities-section {
+    background: #f5f8ff;
+}
+
+/* Card Enhancements */
+.program-card, .news-card, .facility-item {
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.program-card:hover, .news-card:hover, .facility-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Blur on Scroll */
+header {
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Footer Enhancements */
+footer {
+    border-top: 2px solid var(--primary-light);
+}
+
+/* --- Fasilitas Section Animation and Shape Enhancements --- */
+
+/* Animate each facility card on scroll with a pop-up effect */
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.facility-item {
+    animation: popUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* Add delay based on index (JS will add this class dynamically) */
+.facility-item.animated {
+    opacity: 1;
+}
+
+/* Custom blob-like shape using clip-path */
+.facility-item {
+    clip-path: polygon(10% 0%, 90% 0%, 100% 20%, 100% 80%, 90% 100%, 10% 100%, 0% 80%, 0% 20%);
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header id="header">
+<div class="container header-container">
+<div class="logo">
+<img alt="Logo SMKN 1" src="G:\FINAL BOSS\Logo-SMKN_1_Kota_Tangerang-Photoroom.png"/>
+<div class="logo-text">
+<h1>SMKN 1 TANGERANG</h1>
+<p>Sekolah Unggulan Berbasis Teknologi</p>
+</div>
+</div>
+<div class="hamburger" id="hamburger">
+<div></div>
+<div></div>
+<div></div>
+</div>
+<nav id="nav">
+<ul>
+<li><a href="#home">Beranda</a></li>
+<li><a href="#program">Program</a></li>
+<li><a href="#students">Siswa</a></li>
+<li><a href="#facilities">Fasilitas</a></li>
+<li><a href="#news">Berita</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="container">
+<div class="hero-content">
+<h1>Membangun Generasi Digital yang Kompeten dan Berkarakter</h1>
+<p>SMKN 1 Tangerang hadir untuk mempersiapkan siswa menghadapi tantangan era digital dengan kurikulum berbasis industri dan fasilitas modern.</p>
+<div class="hero-buttons">
+<a class="btn btn-primary" href="#program">Program Kami</a>
+<a class="btn btn-secondary" href="#contact">Hubungi Kami</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Program Section -->
+<section class="program-section" id="program">
+<div class="container">
+<div class="section-title">
+<h2>Program Jurusan</h2>
+<p>Kami menawarkan berbagai program studi yang dirancang untuk memenuhi kebutuhan industri 4.0</p>
+</div>
+<div class="program-cards">
+<div class="program-card">
+<div class="program-icon">
+<i class="fas fa-pencil-ruler"></i>
+</div>
+<h3>Desain Komunikasi Visual</h3>
+<p>Mengembangkan kreativitas dalam desain grafis, animasi, dan multimedia dengan fasilitas studio lengkap.</p>
+</div>
+<div class="program-card">
+<div class="program-icon">
+<i class="fas fa-network-wired"></i>
+</div>
+<h3>Teknik Komputer Jaringan</h3>
+<p>Membekali siswa dengan keterampilan jaringan komputer, keamanan siber, dan pemrograman terkini.</p>
+</div>
+<div class="program-card">
+<div class="program-icon">
+<i class="fas fa-calculator"></i>
+</div>
+<h3>Akuntansi</h3>
+<p>Menyiapkan tenaga terampil di bidang keuangan dan akuntansi dengan penguasaan software akuntansi modern.</p>
+</div>
+<div class="program-card">
+<div class="program-icon">
+<i class="fas fa-briefcase"></i>
+</div>
+<h3>Perkantoran</h3>
+<p>Menyiapkan tenaga administrasi perkantoran yang terampil dalam pengelolaan dokumen dan informasi.</p>
+</div>
+<div class="program-card">
+<div class="program-icon">
+<i class="fas fa-shopping-bag"></i>
+</div>
+<h3>Bisnis Retail</h3>
+<p>Membekali siswa dengan keterampilan dalam pengelolaan bisnis ritel dan penjualan produk.</p>
+</div>
+<div class="program-card">
+<div class="program-icon">
+<i class="fas fa-bolt"></i>
+</div>
+<h3>Teknik Instalasi Tenaga Listrik</h3>
+<p>Menyiapkan tenaga terampil di bidang instalasi listrik bangunan dan industri.</p>
+</div>
+<div class="program-card">
+<div class="program-icon">
+<i class="fas fa-chart-line"></i>
+</div>
+<h3>Pemasaran</h3>
+<p>Mengembangkan keterampilan dalam strategi pemasaran digital dan konvensional.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Daftar Siswa Section -->
+<section class="students-section" id="students">
+<div class="container">
+<div class="section-title">
+<h2>Daftar Siswa Kelas 12 DKV 2</h2>
+<p>Berikut adalah daftar siswa kelas 12 Desain Komunikasi Visual 2 Tahun Ajaran 2024/2025</p>
+</div>
+<table class="student-table">
+<thead>
+<tr>
+<th>No</th>
+<th>NIS</th>
+<th>Nama Siswa</th>
+<th>Jenis Kelamin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1229316</td>
+<td>Ahmad Dhani Effendi</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1229317</td>
+<td>Ahmad Nur Sidiq</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1229318</td>
+<td>Al Firdaus Kornianda</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1229319</td>
+<td>Alvinly Hadinata</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1229320</td>
+<td>Aprilia Sechan</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1229321</td>
+<td>Azzahrra Dhabitah Junaria</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1229322</td>
+<td>Callysta Putri Isella</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1229323</td>
+<td>Danar Eka Maheswara</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1229324</td>
+<td>Dwi Andika</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1229325</td>
+<td>Dzikra Haifa Aulia</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1229326</td>
+<td>Erasmus Brahim Zaibat</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1229327</td>
+<td>Fadilah Arya Wisesa</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>13</td>
+<td>1229328</td>
+<td>Faiza Shivarani</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>14</td>
+<td>1229329</td>
+<td>Farel Ahmad Kurniawan</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>15</td>
+<td>1229330</td>
+<td>Frizki Ardiansyah</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>16</td>
+<td>1229331</td>
+<td>Hanna Majesta</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>17</td>
+<td>1229332</td>
+<td>Jonathan Toba Simangunsong</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>18</td>
+<td>1229334</td>
+<td>Mahessa Bagaskara</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>19</td>
+<td>1229335</td>
+<td>Mohamad Arief Fangga</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1229336</td>
+<td>Muhammad Fathir Alfath</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>21</td>
+<td>1229337</td>
+<td>Muhammad Andra Atha Razan</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>22</td>
+<td>1229338</td>
+<td>Muhammad Al Fattan Audratama</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>23</td>
+<td>1229339</td>
+<td>Muhammad Ellite Rapi Nassruloh</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>24</td>
+<td>1229340</td>
+<td>Muhammad Ridwan Abdul Rahman</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>25</td>
+<td>1229341</td>
+<td>Muhammad Uthman Dzaky</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>26</td>
+<td>1229342</td>
+<td>Nashwa Mayrani Putri Kurniawan</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>27</td>
+<td>1229343</td>
+<td>Natava Kudira Zidane</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>28</td>
+<td>1229344</td>
+<td>Nilam Setiana Gultom</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>29</td>
+<td>1229345</td>
+<td>Panji Fitra Permana</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>30</td>
+<td>1229346</td>
+<td>Reza Ahmad Al Ghifari</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>31</td>
+<td>1229348</td>
+<td>Salsa Nabila</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>32</td>
+<td>1229349</td>
+<td>Shahnaz Nawra Raggaza zaelrus</td>
+<td>Perempuan</td>
+</tr>
+<tr>
+<td>33</td>
+<td>1229350</td>
+<td>Syawalludin Purnama</td>
+<td>Laki-laki</td>
+</tr>
+<tr>
+<td>34</td>
+<td>12293451</td>
+<td>Viola Wilda Pardede</td>
+<td>Perempuan</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Fasilitas Section -->
+<section class="facilities-section" id="facilities">
+<div class="container">
+<div class="section-title">
+<h2>Fasilitas Modern</h2>
+<p>Dukung proses belajar mengajar dengan fasilitas berstandar internasional</p>
+</div>
+<div class="facility-grid">
+<div class="facility-item">
+<div class="facility-icon">
+<i class="fas fa-laptop"></i>
+</div>
+<div class="facility-content">
+<h3>Lab Komputer</h3>
+<p>Laboratorium komputer dengan spesifikasi tinggi dan koneksi internet cepat untuk mendukung pembelajaran.</p>
+</div>
+</div>
+<div class="facility-item">
+<div class="facility-icon">
+<i class="fas fa-book-open"></i>
+</div>
+<div class="facility-content">
+<h3>Perpustakaan Digital</h3>
+<p>Akses ribuan buku fisik dan digital serta jurnal internasional untuk menunjang penelitian siswa.</p>
+</div>
+</div>
+<div class="facility-item">
+<div class="facility-icon">
+<i class="fas fa-book-open"></i>
+</div>
+<div class="facility-content">
+<h3>Kantin</h3>
+<p>Akses ribuan buku fisik dan digital serta jurnal internasional untuk menunjang penelitian siswa.</p>
+</div>
+</div>
+<div class="facility-item">
+<div class="facility-icon">
+<i class="fa-solid fa-mosque"></i>
+</div>
+<div class="facility-content">
+<h3>Masjid Sekolah</h3>
+<p>Fasilitas masjid yang nyaman dan bersih tersedia di lingkungan sekolah sebagai tempat ibadah dan kegiatan keagamaan siswa.</p>
+</div>
+</div>
+<div class="facility-item">
+<div class="facility-icon">
+<i class="fas fa-flask"></i>
+</div>
+<div class="facility-content">
+<h3>Lab Praktikum</h3>
+<p>Laboratorium praktikum dengan peralatan modern untuk eksperimen dan penelitian siswa.</p>
+</div>
+</div>
+<div class="facility-item">
+<div class="facility-icon">
+<i class="fas fa-utensils"></i>
+</div>
+<div class="facility-content">
+<h3>Kantin Sehat</h3>
+<p>Kantin dengan menu sehat dan bergizi untuk mendukung aktivitas belajar siswa sepanjang hari.</p>
+</div>
+</div>
+<div class="facility-item">
+<div class="facility-icon">
+<i class="fas fa-running"></i>
+</div>
+<div class="facility-content">
+<h3>Lapangan Olahraga</h3>
+<p>Fasilitas olahraga lengkap untuk mendukung pengembangan fisik dan kesehatan siswa.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Berita Section -->
+<section class="news-section" id="news">
+<div class="container">
+<div class="section-title">
+<h2>Berita Terkini</h2>
+<p>Ikuti perkembangan terbaru dan prestasi SMKN 1 Tangerang</p>
+</div>
+<div class="news-cards">
+<div class="news-card">
+<div class="news-img">
+<img alt="Berita 1" src="https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+</div>
+<div class="news-content">
+<div class="news-date"><i class="far fa-calendar-alt"></i> 15 Juni 2023</div>
+<h3 class="news-title">SMKN 1 Juara Lomba Robotik Nasional 2023</h3>
+<p class="news-excerpt">Tim robotik SMKN 1 Tangerang berhasil meraih juara pertama dalam kompetisi robotik nasional yang diikuti oleh 50 sekolah se-Indonesia...</p>
+<a class="read-more" href="#">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="news-card">
+<div class="news-img">
+<img alt="Berita 2" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1470&amp;q=80"/>
+</div>
+<div class="news-content">
+<div class="news-date"><i class="far fa-calendar-alt"></i> 10 Juni 2023</div>
+<h3 class="news-title">Wisuda Angkatan ke-25 SMKN 1 Tangerang</h3>
+<p class="news-excerpt">Sebanyak 350 siswa telah diwisuda dalam acara yang berlangsung meriah dengan tema "Membangun Karakter di Era Digital"...</p>
+<a class="read-more" href="#">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="news-card">
+<div class="news-img">
+<img alt="Berita 3" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80"/>
+</div>
+<div class="news-content">
+<div class="news-date"><i class="far fa-calendar-alt"></i> 5 Juni 2023</div>
+<h3 class="news-title">Workshop Kewirausahaan Digital untuk Siswa</h3>
+<p class="news-excerpt">Sekolah mengadakan workshop kewirausahaan digital dengan menghadirkan pengusaha sukses sebagai pembicara untuk membagikan pengalaman...</p>
+<a class="read-more" href="#">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer id="contact">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Tentang Kami</h3>
+<p>SMKN 1 Tangerang adalah sekolah kejuruan unggulan yang berkomitmen untuk menghasilkan lulusan yang kompeten, kreatif, dan berkarakter di era digital.</p>
+<p>Terakreditasi A dengan fasilitas lengkap dan pengajar profesional dari berbagai latar belakang industri.</p>
+</div>
+<div class="footer-section">
+<h3>Kontak Kami</h3>
+<div class="contact-info">
+<i class="fas fa-map-marker-alt"></i>
+<p>Jl. Pendidikan No. 1, Tangerang, Banten 15117</p>
+</div>
+<div class="contact-info">
+<i class="fas fa-phone-alt"></i>
+<p>(021) 5522 1234</p>
+</div>
+<div class="contact-info">
+<i class="fas fa-envelope"></i>
+<p>info@smkn1tangerang.sch.id</p>
+</div>
+</div>
+<div class="footer-section">
+<h3>Tautan Cepat</h3>
+<a href="#">Penerimaan Siswa Baru</a>
+<a href="#">Kalender Akademik</a>
+<a href="#">Galeri Foto</a>
+<a href="#">Prestasi Sekolah</a>
+<a href="#">Struktur Organisasi</a>
+</div>
+<div class="footer-section">
+<h3>Sosial Media</h3>
+<p>Ikuti kami di media sosial untuk mendapatkan informasi terbaru</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2023 SMKN 1 Tangerang. Semua Hak Dilindungi.</p>
+</div>
+</footer>
+<script>
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.program-card, .facility-item, .news-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.program-card, .facility-item, .news-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const facilities = document.querySelectorAll(".facility-item");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    facilities.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.15}s`;
+        observer.observe(el);
+    });
+});
+</script></body>
+</html>
